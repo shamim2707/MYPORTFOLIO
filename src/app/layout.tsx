@@ -14,9 +14,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Ajmal Faris | Full Stack Engineer",
-  description: "Personal portfolio of Ajmal Faris – showcasing projects, skills, and experience in fullstack development.",
+  description:
+    "Personal portfolio of Ajmal Faris – showcasing projects, skills, and experience in fullstack development.",
+  icons: {
+     icon: "/favicon.ico",
+  },
 };
-
 
 export default function RootLayout({
   children,
