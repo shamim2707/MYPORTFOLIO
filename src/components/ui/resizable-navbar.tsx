@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { IconMenu , IconX } from "@tabler/icons-react";
+import { IconMenu, IconX } from "@tabler/icons-react";
 import {
   motion,
   AnimatePresence,
@@ -49,12 +49,13 @@ interface MobileNavMenuProps {
 }
 
 export const Navbar = ({ children, className }: NavbarProps) => {
+  const [visible, setVisible] = useState<boolean>(false);
+
   const ref = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
-  const [visible, setVisible] = useState<boolean>(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 100) {
@@ -102,7 +103,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         minWidth: "800px",
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex dark:bg-transparent",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start bg-none pl-4 pr-6 py-1 lg:flex",
         visible && "bg-white/80 dark:bg-white",
         className
       )}
@@ -119,7 +120,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-amber-200 lg:flex lg:space-x-2",
+        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium transition duration-200 lg:flex lg:space-x-2",
         className
       )}
     >
@@ -127,14 +128,14 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <a
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
+          className="relative px-4 py-2 text-white hover:text-blue-700"
           key={`link-${idx}`}
           href={item.link}
         >
           {hovered === idx && (
             <motion.div
               layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-blue-700/40 backdrop-blur-2xl"
+              className="absolute inset-0 h-full w-full rounded-full bg-blue-900/30  backdrop-blur-2xl"
             />
           )}
           <span className="relative z-20">{item.name}</span>

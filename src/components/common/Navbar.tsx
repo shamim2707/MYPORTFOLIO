@@ -29,17 +29,17 @@ export default function Page() {
   const [menuOpen, setMenuOpen] = React.useState(false);
 
   return (
-    <Navbar className="absolute top-2 flex justify-center bg-white/10 rounded-full w-[90%] justify-self-center backdrop-blur-sm border border-white/10">
+    <Navbar className="absolute top-2 flex justify-center  w-[90%] justify-self-center backdrop-blur-sm">
       {/* Desktop Navbar */}
       <NavBody>
         <NavbarLogo />
         <NavItems items={navLinks} />
-        <div className="flex gap-6 text-xl z-10">
+        <div className="flex gap-6 text-xl z-10 border-1 hover:border-blue-700 rounded-full p-2 px-4 ">
           <a
             href="https://github.com/ajmalfaris11"
             target="_blank"
             rel="noopener noreferrer"
-            className="transform transition-transform duration-300 hover:scale-75"
+            className="transform transition-transform duration-300 hover:scale-90 hover:text-blue-700"
           >
             <FaGithub />
           </a>
@@ -47,7 +47,7 @@ export default function Page() {
             href="https://www.linkedin.com/in/ajmal-faris11/"
             target="_blank"
             rel="noopener noreferrer"
-            className="transform transition-transform duration-300 hover:scale-75"
+            className="transform transition-transform duration-300 hover:scale-90 hover:text-blue-700"
           >
             <FaLinkedinIn />
           </a>
@@ -55,7 +55,7 @@ export default function Page() {
             href="https://instagram.com/ajmal_faris11"
             target="_blank"
             rel="noopener noreferrer"
-            className="transform transition-transform duration-300 hover:scale-75"
+            className="transform transition-transform duration-300 hover:scale-90 hover:text-blue-700"
           >
             <AiFillInstagram />
           </a>
@@ -63,7 +63,7 @@ export default function Page() {
             href="https://leetcode.com/u/AjmalFaris/"
             target="_blank"
             rel="noopener noreferrer"
-            className="transform transition-transform duration-300 hover:scale-75"
+            className="transform transition-transform duration-300 hover:scale-90 hover:text-blue-700"
           >
             <SiLeetcode />
           </a>
