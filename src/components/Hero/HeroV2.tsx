@@ -62,7 +62,7 @@ export default function Hero() {
   return (
     <section className="relative flex min-h-screen w-full items-center justify-center text-white overflow-hidden">
       {/* Navbar */}
-      <Navbar  />
+      <Navbar />
 
       {/* Dots background */}
       <div
@@ -80,9 +80,7 @@ export default function Hero() {
         {/* Left content */}
         <div className="text-center md:text-left flex-2">
           <p className="text-xl">Hello, It's Me</p>
-          <h1 className="text-6xl font-bold">AJMAL FARIS</h1>
-
-          {/* Animated text loop */}
+          <h1 className="text-8xl font-bold  animate-flip-wave">Ajmal Faris</h1>
           <div className="flex justify-start items-center gap-2 text-3xl font-semibold mt-2">
             <span className="text-white">And I'm a</span>
             <AnimatePresence mode="wait">

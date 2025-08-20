@@ -1,16 +1,95 @@
 @import "tailwindcss";
 
-@theme inline {
-  --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
-}
 
 @keyframes spotlight {
   0% {
     opacity: 0;
     transform: translate(-72%, -62%) scale(0.5);
   }
+
   100% {
     opacity: 1;
     transform: translate(-50%, -40%) scale(1);
+  }
+}
+
+
+
+/* Custom CSS variables for dark text colors */
+:root {
+  font-family: var(--font-quantico), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+@keyframes flipWave {
+  0% {
+    transform: perspective(500px) rotateX(0deg) rotateY(0deg) scale(1);
+    color: #188fff;
+  }
+
+  25% {
+    transform: perspective(500px) rotateX(10deg) rotateY(-10deg) scale(1.1);
+    color: #2900f5;
+  }
+
+  50% {
+    transform: perspective(500px) rotateX(-10deg) rotateY(10deg) scale(1);
+    color: #3c1ffe;
+  }
+
+  75% {
+    transform: perspective(500px) rotateX(10deg) rotateY(10deg) scale(1.1);
+    color: #5a3cff;
+  }
+
+  100% {
+    transform: perspective(500px) rotateX(0deg) rotateY(0deg) scale(1);
+    color: #188fff;
+  }
+}
+
+.animate-flip-wave {
+  display: inline-block;
+  animation: flipWave 8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-shine {
+  background: linear-gradient(90deg, #0548ff 50%, #6280f8, #0061fd);
+  background-size: 50% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 8s linear infinite;
+}
+
+
+
+
+/* Custom utilities using @layer */
+@layer utilities {
+  .text-text-dark {
+    color: var(--text-dark);
+  }
+
+  .text-text-dark-light {
+    color: var(--text-dark-light);
+  }
+
+  .text-text-dark-lighter {
+    color: var(--text-dark-lighter);
+  }
+
+  .text-text-dark-accent {
+    color: var(--text-dark-accent);
   }
 }

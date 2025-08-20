@@ -3,6 +3,16 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
+import { Quantico } from 'next/font/google'
+
+const quantico = Quantico({
+  subsets: ['latin'],
+  weight: ['400', '700'],        // Quantico ships 400 and 700
+  variable: '--font-quantico',   // expose as CSS var for flexibility
+  display: 'swap',               // no invisible text
+})
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -26,7 +36,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={quantico.variable} suppressHydrationWarning>
       <body suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
