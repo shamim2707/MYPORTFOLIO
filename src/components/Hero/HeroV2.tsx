@@ -82,7 +82,6 @@ export default function Hero() {
         {/* Left content */}
         <div className="text-center md:text-left flex-2">
           <p className="text-xl">Hello, It&apos;s Me</p>
-          {/* <h1 className="text-8xl font-bold  animate-flip-wave">Ajmal Faris</h1> */}
           <AnimatedHeroText
             text="Ajmal Faris"
             className="text-8xl font-bold text-nowrap animate-shine"
@@ -97,7 +96,7 @@ export default function Hero() {
                 className="text-blue-600"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
+                exit={{ opacity: 0, y: 15 }}
                 transition={{ duration: 0.3 }}
               >
                 {titles[index]}

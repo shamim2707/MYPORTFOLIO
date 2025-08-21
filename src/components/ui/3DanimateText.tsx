@@ -55,7 +55,7 @@ export const AnimatedHeroText = ({
         style={{ rotateX, rotateY, translateX, translateY }}
         initial={{ scale: 1 }}
         whileHover={{ scale: 1.05, z: 50, transition: { duration: 0.2 } }}
-        className="relative rounded-2xl p-4"
+        className="relative"
       >
         <h1 className={`text-4xl font-bold text-white ${className}`}>{text}</h1>
       </motion.div>
