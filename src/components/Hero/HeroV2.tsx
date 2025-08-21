@@ -14,7 +14,8 @@ const titles = [
   "Full Stack Developer",
   "Frontend Developer",
   "Backend Developer",
-  "MERN & Next.js Developer",
+  "MERN Developer",
+  "Next.js Developer",
   "API Developer",
   "Database Developer",
   "TypeScript Developer",
@@ -73,7 +74,7 @@ export default function Hero() {
       />
 
       {/* Subtle radial gradient fade */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-transparent to-blue-700/50 opacity-80" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-transparent to-blue-700/48 opacity-80" />
 
       {/* Content */}
       <div className="relative w-full z-10 flex flex-col md:flex-row items-center gap-10 p-12">
