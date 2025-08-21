@@ -114,7 +114,7 @@ export default function Hero() {
             {socialLinks.map(({ id, icon: Icon, url }) => (
               <span
                 key={id}
-                className="bg-gray-800 hover:bg-transparent rounded-full"
+                className="bg-gray-800 hover:bg-transparent rounded-2xl"
               >
                 <a
                   href={url}
