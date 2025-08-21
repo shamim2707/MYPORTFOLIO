@@ -80,7 +80,7 @@ export default function Hero() {
       <div className="relative w-full z-10 flex flex-col md:flex-row items-center gap-10 p-12">
         {/* Left content */}
         <div className="text-center md:text-left flex-2">
-          <p className="text-xl">Hello, It's Me</p>
+          <p className="text-xl">Hello, It&apos;s Me</p>
           <h1 className="text-8xl font-bold  animate-flip-wave">Ajmal Faris</h1>
           <div className="flex justify-start items-center gap-2 text-3xl font-semibold mt-2">
             <span className="text-white">And I'm a</span>
