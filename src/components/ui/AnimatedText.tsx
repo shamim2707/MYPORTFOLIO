@@ -5,12 +5,12 @@ import { motion, useAnimation, Variants } from "framer-motion";
 
 const defaultAnimation: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }, // <-- control char speed
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
 };
 
 type AnimatedTextProps = {
   text: string[];                // Multiple words/sentences to cycle through
-  el?: React.ElementType;        // Safe wrapper type
+  el?: React.ElementType<{ className?: string; children?: React.ReactNode }>;
   className?: string;
   repeatDelay?: number;          // Time to hold before switching
   animation?: Variants;          // Custom animation if needed
@@ -20,7 +20,7 @@ export default function AnimatedText({
   text,
   el: Wrapper = "p",            // Default wrapper tag
   className,
-  repeatDelay = 3000,            // <-- control how long each text stays before switching
+  repeatDelay = 3000,            // <-- how long each text stays before switching
   animation = defaultAnimation,
 }: AnimatedTextProps) {
   const controls = useAnimation();
