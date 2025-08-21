@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedHeroImage } from "@/components/Hero/AnimatedHeroImage ";
+import { AnimatedHeroText } from "@/components/ui/3DanimateText";
 import Navbar from "@/components/common/Navbar";
 import { useState, useEffect } from "react";
 
@@ -81,7 +82,13 @@ export default function Hero() {
         {/* Left content */}
         <div className="text-center md:text-left flex-2">
           <p className="text-xl">Hello, It&apos;s Me</p>
-          <h1 className="text-8xl font-bold  animate-flip-wave">Ajmal Faris</h1>
+          {/* <h1 className="text-8xl font-bold  animate-flip-wave">Ajmal Faris</h1> */}
+          <AnimatedHeroText
+            text="Ajmal Faris"
+            className="text-8xl font-bold text-nowrap animate-shine"
+            rotateDepth={10}
+            translateDepth={10}
+          />
           <div className="flex justify-start items-center gap-2 text-3xl font-semibold mt-2">
             <span className="text-white">And I'm a</span>
             <AnimatePresence mode="wait">
