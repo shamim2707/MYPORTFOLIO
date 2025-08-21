@@ -29,7 +29,7 @@ export default function Page() {
   const [menuOpen, setMenuOpen] = React.useState(false);
 
   return (
-    <Navbar className="absolute top-2 flex justify-center  w-[90%] justify-self-center backdrop-blur-sm">
+    <Navbar className="absolute top-2 flex justify-center bg-transparent justify-self-center px-8">
       {/* Desktop Navbar */}
       <NavBody>
         <NavbarLogo />
