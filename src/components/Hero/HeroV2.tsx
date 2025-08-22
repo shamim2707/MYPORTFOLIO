@@ -125,17 +125,17 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-transparent to-blue-700/48 opacity-80" />
 
       {/* Content */}
-      <div className="relative w-full z-10 flex flex-col md:flex-row items-center gap-10 p-12">
+      <div className="relative w-full z-10 flex flex-col-reverse md:flex-row items-center gap-10 p-12">
         {/* Left content */}
         <div className="text-center md:text-left flex-2">
           <p className="text-xl">Hello, It&apos;s Me</p>
           <AnimatedText
             text="Ajmal Faris"
-            className="text-8xl font-bold text-nowrap animate-shine"
+            className="text-[16vw] sm:text-[10vw] font-bold text-nowrap animate-shine"
             rotateDepth={10}
             translateDepth={10}
           />
-          <div className="flex justify-start items-center gap-2 text-3xl font-semibold mt-2">
+          <div className="flex flex-col sm:flex-row justify-start items-center sm:gap-2 text-[8vw] md:text-[3vw] xl:text-[3.5vw] font-semibold mt-2">
             <span className="text-white">And I'm a</span>
             <AnimatePresence mode="wait">
               <motion.h2
@@ -154,7 +154,7 @@ export default function Hero() {
           <AnimatePresence mode="wait">
             <motion.p
               key={index}
-              className="mt-4 text-gray-300 max-w-md"
+              className="mt-4 text-gray-300 max-w-xl text-[4vw] md:text-[2vw] lg:text-[1vw] xl:text-[1.5vw]"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
@@ -176,7 +176,7 @@ export default function Hero() {
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-blue-700 transition-all duration-500 shadow-md rotate-90"
+                    className="w-10 h-10 xl:w-14 xl:h-14 flex items-center justify-center bg-gray-800 hover:bg-blue-700 transition-all duration-500 shadow-md rotate-90"
                     style={{
                       clipPath:
                         "polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)",
@@ -191,14 +191,14 @@ export default function Hero() {
 
           {/* Button animation */}
           <button
-            className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none mt-6"
+            className="relative inline-flex h-12 xl:h-14 overflow-hidden rounded-full p-[1px] focus:outline-none mt-6"
             onMouseEnter={() => setDownloadHover(true)}
             onMouseLeave={() => setDownloadHover(false)}
             onClick={handleDownload}
           >
             <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#0000ff_0%,#fff_50%,#0000ff_100%)]" />
             <span
-              className={`relative inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-8 py-1 text-sm font-medium backdrop-blur-3xl gap-2 hover:gap-4 transform duration-300 transition-all ease-in-out 
+              className={`relative inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-8 py-1 text-sm font-medium backdrop-blur-3xl gap-2 xl:gap-4 xl:hover:gap-8 hover:gap-4 transform duration-300 transition-all ease-in-out 
                 ${downloadHover ? "text-blue-500" : "text-white"}`}
             >
               {isDownloaded && (
