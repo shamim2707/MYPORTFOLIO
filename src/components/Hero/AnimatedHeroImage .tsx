@@ -73,7 +73,7 @@ export const AnimatedHeroImage = ({
         <img
           src="/images/hero_img.webp"
           alt="profile"
-          className="w-[400px] h-auto object-cover"
+          className="w-[100vw] lg:w-[36vw] h-auto object-cover"
         />
       </motion.div>
     </div>
