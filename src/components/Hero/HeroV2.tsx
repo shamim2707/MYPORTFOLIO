@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedHeroImage } from "@/components/Hero/AnimatedHeroImage ";
 import { AnimatedHeroText } from "@/components/ui/3DanimateText";
+import { MdDownloading } from "react-icons/md";
 import Navbar from "@/components/common/Navbar";
 import { useState, useEffect } from "react";
 
@@ -52,14 +53,31 @@ export const socialLinks = [
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
-  const [downloadHover, setDownloadHover] = useState<boolean>(false);
-
+  const [downloadHover, setDownloadHover] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % titles.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleDownload = () => {
+    setIsDownloading(true); // start icon animation
+
+    const link = document.createElement("a");
+    link.href = "p1.svg";
+    link.download = "CaptainAj_CV.svg";
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Stop animation after 2 seconds (simulate download start)
+    setTimeout(() => {
+      setIsDownloading(false);
+    }, 2000);
+  };
 
   return (
     <section className="relative flex min-h-screen w-full items-center justify-center text-white overflow-hidden">
@@ -134,13 +152,27 @@ export default function Hero() {
 
           {/* Button animation */}
           <button
-            className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 mt-6"
+            className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none mt-6"
             onMouseEnter={() => setDownloadHover(true)}
             onMouseLeave={() => setDownloadHover(false)}
+            onClick={handleDownload}
           >
             <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#0000ff_0%,#fff_50%,#0000ff_100%)]" />
-            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-8 py-1 text-sm font-medium text-white backdrop-blur-3xl gap-2 hover:gap-4 transform duration-300 transition-all ease-in-out">
-              Download CV {downloadHover ? <TfiDownload /> : null}
+            <span
+              className={`inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-8 py-1 text-sm font-medium backdrop-blur-3xl gap-2 hover:gap-4 transform duration-300 transition-all ease-in-out ${
+                downloadHover ? "text-blue-500" : "text-white"
+              }`}
+            >
+              Download CV{" "}
+              {isDownloading ? (
+                <MdDownloading className="animate-pulse text-lg text-blue-500" />
+              ) : (
+                <TfiDownload
+                  className={`text-blue-400 ${
+                    downloadHover ? "animate-pulse" : "animate-null"
+                  }`}
+                />
+              )}
             </span>
           </button>
         </div>
