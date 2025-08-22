@@ -198,7 +198,7 @@ export default function Hero() {
           >
             <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#0000ff_0%,#fff_50%,#0000ff_100%)]" />
             <span
-              className={`relative inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-8 py-1 text-sm font-medium backdrop-blur-3xl gap-2 xl:gap-4 xl:hover:gap-8 hover:gap-4 transform duration-300 transition-all ease-in-out 
+              className={`relative inline-flex h-full w-full items-center justify-center rounded-full bg-black px-8 py-1 text-sm font-medium backdrop-blur-3xl gap-2 xl:gap-4 xl:hover:gap-8 hover:gap-4 transform duration-300 transition-all ease-in-out 
                 ${downloadHover ? "text-blue-500" : "text-white"}`}
             >
               {isDownloaded && (
@@ -212,7 +212,7 @@ export default function Hero() {
                 </>
               )}
 
-              <p className={`${isDownloading ? "animate-pulse" : null}`}>
+              <p className={`${isDownloading ? "animate-pulse" : null} cursor-none`}>
                 Download CV
               </p>
               {isDownloaded ? (
