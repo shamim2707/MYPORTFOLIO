@@ -176,7 +176,7 @@ export default function Hero() {
           {/* Social icons */}
           <div className="flex justify-center md:justify-start gap-4 mt-6">
             {socialLinks.map(({ id, icon: Icon, url }) => (
-              <AnimatedDiv rotateDepth={5} translateDepth={6}>
+              <AnimatedDiv key={id} rotateDepth={5} translateDepth={6}>
                 <span
                   key={id}
                   className="bg-gray-800 hover:bg-transparent rounded-2xl"
