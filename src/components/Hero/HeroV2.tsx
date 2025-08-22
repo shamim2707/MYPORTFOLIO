@@ -131,11 +131,11 @@ export default function Hero() {
           <p className="text-xl">Hello, It&apos;s Me</p>
           <AnimatedText
             text="Ajmal Faris"
-            className="text-[16vw] sm:text-[10vw] font-bold text-nowrap animate-shine"
+            className="text-[16vw] sm:text-[8vw] font-bold text-nowrap animate-shine"
             rotateDepth={10}
             translateDepth={10}
           />
-          <div className="flex flex-col sm:flex-row justify-start items-center sm:gap-2 text-[8vw] md:text-[3vw] xl:text-[3.5vw] font-semibold mt-2">
+          <div className="flex flex-col sm:flex-row justify-start items-center sm:gap-2 text-[8vw] md:text-[2.5vw] xl:text-[3.5vw] font-semibold mt-2">
             <span className="text-white">And I'm a</span>
             <AnimatePresence mode="wait">
               <motion.h2
@@ -154,7 +154,7 @@ export default function Hero() {
           <AnimatePresence mode="wait">
             <motion.p
               key={index}
-              className="mt-4 text-gray-300 max-w-xl text-[4vw] md:text-[2vw] lg:text-[1vw] xl:text-[1.5vw]"
+              className="mt-4 text-gray-300 max-w-md xl:max-w-xl text-[4vw] md:text-[2vw] lg:text-[1.3vw] xl:text-[1.5vw]"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
