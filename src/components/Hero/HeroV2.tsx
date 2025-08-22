@@ -14,18 +14,53 @@ import { SiLeetcode } from "react-icons/si";
 import { TfiDownload } from "react-icons/tfi";
 import { MdFileDownloadDone } from "react-icons/md";
 
-const myCv = "/myFakeCV.pdf"
+const myCv = "/myFakeCV.pdf";
 
 const titles = [
-  "Full Stack Developer",
-  "Frontend Developer",
-  "Backend Developer",
-  "MERN Developer",
-  "Next.js Developer",
-  "API Developer",
-  "Database Developer",
-  "TypeScript Developer",
-  "Problem Solver",
+  {
+    title: "Full Stack Developer",
+    description: "Builds end-to-end web apps from database to user interface.",
+  },
+  {
+    title: "Frontend Developer",
+    description:
+      "Creates responsive, user-friendly interfaces using modern frameworks and tools.",
+  },
+  {
+    title: "Backend Developer",
+    description:
+      "Designs secure, scalable servers and APIs for complex applications.",
+  },
+  {
+    title: "MERN Developer",
+    description:
+      "Develops full-stack solutions with MongoDB, Express, React, and Node.",
+  },
+  {
+    title: "Next.js Developer",
+    description:
+      "Builds SEO-friendly, fast applications with server-side rendering.",
+  },
+  {
+    title: "API Developer",
+    description:
+      "Develops secure, scalable APIs to streamline communication between services.",
+  },
+  {
+    title: "Database Developer",
+    description:
+      "Optimizes database performance and ensures robust data management.",
+  },
+  {
+    title: "TypeScript Developer",
+    description:
+      "Writes type-safe, maintainable JavaScript for scalable applications.",
+  },
+  {
+    title: "Problem Solver",
+    description:
+      "Finds creative, efficient solutions to challenging technical issues.",
+  },
 ];
 
 export const socialLinks = [
@@ -117,18 +152,26 @@ export default function Hero() {
                 className="text-blue-600"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 15 }}
+                exit={{ opacity: 0, y: 10 }}
                 transition={{ duration: 0.3 }}
               >
-                {titles[index]}
+                {titles[index].title}
               </motion.h2>
             </AnimatePresence>
           </div>
 
-          <p className="mt-4 text-gray-400 max-w-md">
-            I craft scalable web applications with a focus on performance and
-            clean design.
-          </p>
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={index}
+              className="mt-4 text-gray-300 max-w-md"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              {titles[index].description}
+            </motion.p>
+          </AnimatePresence>
 
           {/* Social icons */}
           <div className="flex justify-center md:justify-start gap-4 mt-6">
@@ -168,20 +211,21 @@ export default function Hero() {
                 ${downloadHover ? "text-blue-500" : "text-white"}`}
             >
               {isDownloaded && (
-                  <>
-                    <img
-                      // key={Date.now()} 
-                      src="/confetti.gif"
-                      alt="success"
-                      className="absolute"
-                    />
-                  </>)}
+                <>
+                  <img
+                    // key={Date.now()}
+                    src="/confetti.gif"
+                    alt="success"
+                    className="absolute"
+                  />
+                </>
+              )}
 
               <p className={`${isDownloading ? "animate-pulse" : null}`}>
                 Download CV
               </p>
               {isDownloaded ? (
-                <MdFileDownloadDone className="text-xl text-blue-500 animate-pulse"/>
+                <MdFileDownloadDone className="text-xl text-blue-500 animate-pulse" />
               ) : isDownloading ? (
                 <MdDownloading className="text-lg text-blue-500 animate-pulse" />
               ) : (
