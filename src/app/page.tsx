@@ -1,6 +1,7 @@
 import Hero1 from "@/components/Hero/HeroV1";
 import Hero2 from "@/components/Hero/HeroV2";
 import Grid from "@/components/Grid";
+import Projects from "@/components/Projects"
 export default function Home() {
   return (
     <main className="relative bg-black text-white flex justify-center items-center flex-col overflow-hidden mx-auto select-none">
@@ -11,8 +12,10 @@ export default function Home() {
         [background-image:radial-gradient(#2d2d2d_1px,transparent_1px)]
         dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]"
       />
+
       <Hero2 />
       <Grid />
+      <Projects />
     </main>
   );
 }
