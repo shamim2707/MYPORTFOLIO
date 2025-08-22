@@ -121,15 +121,6 @@ export default function Hero() {
     <section className="relative flex min-h-screen w-full items-center justify-center text-white overflow-hidden">
       {/* Navbar */}
       <Navbar />
-
-      {/* Dots background */}
-      <div
-        className="absolute inset-0
-        [background-size:20px_20px]
-        [background-image:radial-gradient(#2d2d2d_1px,transparent_1px)]
-        dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]"
-      />
-
       {/* Subtle radial gradient fade */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-transparent to-blue-700/48 opacity-80" />
 
