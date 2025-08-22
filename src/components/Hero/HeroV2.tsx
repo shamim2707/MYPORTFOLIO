@@ -2,7 +2,8 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedHeroImage } from "@/components/Hero/AnimatedHeroImage ";
-import { AnimatedHeroText } from "@/components/ui/3DanimateText";
+import { AnimatedText } from "@/components/ui/3DanimateText";
+import { AnimatedDiv } from "@/components/ui/3DanimateDiv";
 import { MdDownloading } from "react-icons/md";
 import Navbar from "@/components/common/Navbar";
 import { useState, useEffect } from "react";
@@ -11,6 +12,9 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import { SiLeetcode } from "react-icons/si";
 import { TfiDownload } from "react-icons/tfi";
+import { MdFileDownloadDone } from "react-icons/md";
+
+const myCv = "/myFakeCV.pdf"
 
 const titles = [
   "Full Stack Developer",
@@ -55,6 +59,7 @@ export default function Hero() {
   const [index, setIndex] = useState(0);
   const [downloadHover, setDownloadHover] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
+  const [isDownloaded, setIsDownloaded] = useState(false);
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % titles.length);
@@ -62,21 +67,19 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleDownload = () => {
-    setIsDownloading(true); // start icon animation
-
+  const handleDownload = async () => {
+    setIsDownloading(true);
+    const res = await fetch(myCv);
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
-    link.href = "p1.svg";
-    link.download = "CaptainAj_CV.svg";
-
-    document.body.appendChild(link);
+    link.href = url;
+    link.download = "CaptainAj-CV.pdf";
     link.click();
-    document.body.removeChild(link);
-
-    // Stop animation after 2 seconds (simulate download start)
-    setTimeout(() => {
-      setIsDownloading(false);
-    }, 2000);
+    URL.revokeObjectURL(url);
+    setIsDownloading(false);
+    setIsDownloaded(true);
+    setTimeout(() => setIsDownloaded(false), 3000);
   };
 
   return (
@@ -100,7 +103,7 @@ export default function Hero() {
         {/* Left content */}
         <div className="text-center md:text-left flex-2">
           <p className="text-xl">Hello, It&apos;s Me</p>
-          <AnimatedHeroText
+          <AnimatedText
             text="Ajmal Faris"
             className="text-8xl font-bold text-nowrap animate-shine"
             rotateDepth={10}
@@ -130,23 +133,25 @@ export default function Hero() {
           {/* Social icons */}
           <div className="flex justify-center md:justify-start gap-4 mt-6">
             {socialLinks.map(({ id, icon: Icon, url }) => (
-              <span
-                key={id}
-                className="bg-gray-800 hover:bg-transparent rounded-2xl"
-              >
-                <a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-blue-700 transition-all duration-500 shadow-md rotate-90"
-                  style={{
-                    clipPath:
-                      "polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)",
-                  }}
+              <AnimatedDiv rotateDepth={5} translateDepth={6}>
+                <span
+                  key={id}
+                  className="bg-gray-800 hover:bg-transparent rounded-2xl"
                 >
-                  <Icon size={20} className="-rotate-90" />
-                </a>
-              </span>
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-blue-700 transition-all duration-500 shadow-md rotate-90"
+                    style={{
+                      clipPath:
+                        "polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)",
+                    }}
+                  >
+                    <Icon size={20} className="-rotate-90" />
+                  </a>
+                </span>
+              </AnimatedDiv>
             ))}
           </div>
 
@@ -159,13 +164,26 @@ export default function Hero() {
           >
             <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#0000ff_0%,#fff_50%,#0000ff_100%)]" />
             <span
-              className={`inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-8 py-1 text-sm font-medium backdrop-blur-3xl gap-2 hover:gap-4 transform duration-300 transition-all ease-in-out ${
-                downloadHover ? "text-blue-500" : "text-white"
-              }`}
+              className={`relative inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-8 py-1 text-sm font-medium backdrop-blur-3xl gap-2 hover:gap-4 transform duration-300 transition-all ease-in-out 
+                ${downloadHover ? "text-blue-500" : "text-white"}`}
             >
-              Download CV{" "}
-              {isDownloading ? (
-                <MdDownloading className="animate-pulse text-lg text-blue-500" />
+              {isDownloaded && (
+                  <>
+                    <img
+                      // key={Date.now()} 
+                      src="/confetti.gif"
+                      alt="success"
+                      className="absolute"
+                    />
+                  </>)}
+
+              <p className={`${isDownloading ? "animate-pulse" : null}`}>
+                Download CV
+              </p>
+              {isDownloaded ? (
+                <MdFileDownloadDone className="text-xl text-blue-500 animate-pulse"/>
+              ) : isDownloading ? (
+                <MdDownloading className="text-lg text-blue-500 animate-pulse" />
               ) : (
                 <TfiDownload
                   className={`text-blue-400 ${
