@@ -7,13 +7,13 @@ import {
   useTransform,
 } from "motion/react";
 
-export const AnimatedText = ({
-  text,
+export const AnimatedDiv = ({
+  children,
   rotateDepth = 17.5,
   translateDepth = 20,
   className = "",
 }: {
-  text: string;
+  children: React.ReactNode;
   rotateDepth?: number;
   translateDepth?: number;
   className?: string;
@@ -55,9 +55,9 @@ export const AnimatedText = ({
         style={{ rotateX, rotateY, translateX, translateY }}
         initial={{ scale: 1 }}
         whileHover={{ scale: 1.05, z: 50, transition: { duration: 0.2 } }}
-        className="relative"
+        className={`relative ${className}`}
       >
-        <h1 className={`text-4xl font-bold text-white ${className}`}>{text}</h1>
+        {children}
       </motion.div>
     </div>
   );
