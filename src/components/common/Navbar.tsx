@@ -1,5 +1,9 @@
 "use client";
 
+import React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 import {
   Navbar,
   NavBody,
@@ -15,21 +19,19 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import { SiLeetcode } from "react-icons/si";
 
-
-import React from "react";
+const navLinks = [
+  { name: "Home", link: "/" },
+  { name: "About", link: "/about" },
+  { name: "Services", link: "/services" },
+  { name: "Contact", link: "/contact" },
+];
 
 export default function Page() {
-  const navLinks = [
-    { name: "Home", link: "/" },
-    { name: "About", link: "/about" },
-    { name: "Services", link: "/services" },
-    { name: "Contact", link: "/contact" },
-  ];
-
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const pathname = usePathname();
 
   return (
-    <Navbar className="absolute top-2 flex justify-center bg-transparent justify-self-center px-8">
+    <Navbar className="absolute top-2 flex justify-center bg-transparent justify-self-center px-8 z-40">
       {/* Desktop Navbar */}
       <NavBody>
         <NavbarLogo />
@@ -81,14 +83,18 @@ export default function Page() {
         </MobileNavHeader>
         <MobileNavMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)}>
           {navLinks.map((item, idx) => (
-            <a
+            <Link
               key={idx}
               href={item.link}
               onClick={() => setMenuOpen(false)}
-              className="text-lg font-medium text-black dark:text-white"
+              className={`text-lg font-medium ${
+                pathname === item.link
+                  ? "text-blue-600 font-semibold"
+                  : "text-black dark:text-white"
+              }`}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </MobileNavMenu>
       </MobileNav>
