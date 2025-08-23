@@ -3,6 +3,8 @@ import Hero2 from "@/components/Hero/HeroV2";
 import Grid from "@/components/Grid";
 import Projects from "@/components/Projects"
 import CustomCursor from "@/components/CustomCursor";
+import Testimonials from "@/components/Testimonials";
+
 export default function Home() {
   return (
     <main className="relative bg-black text-white flex justify-center items-center flex-col overflow-hidden mx-auto select-none">
@@ -18,6 +20,7 @@ export default function Home() {
       <Hero2 />
       <Grid />
       <Projects />
+      <Testimonials/>
     </main>
   );
 }
