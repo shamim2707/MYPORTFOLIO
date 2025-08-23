@@ -71,7 +71,7 @@ const Projects = () => {
           </div>
         ))}
       </div>
-      <div className="w-[100vw] h-[250px] absolute z-50 -bottom-20 bg-gradient-to-t from-transparent via-blue-500/50 to-transparent flex justify-center items-center">
+      <div className="w-[100vw] h-[200px] absolute z-50 -bottom-5 bg-gradient-to-t from-transparent via-blue-700/40 to-transparent flex justify-center items-center">
         <Link href="/projects">
           <button className="relative inline-flex h-12 xl:h-14 overflow-hidden rounded-full p-[1px] focus:outline-none hover:text-blue-500 hover:animate-pulse">
             <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#0000ff_0%,#fff_50%,#0000ff_100%)]" />
