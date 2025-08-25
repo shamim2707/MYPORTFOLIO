@@ -93,7 +93,7 @@
     color:transparent; 
     -webkit-background-clip:text; 
     background-clip:text; 
-    animation:shine 10s linear infinite; 
+    animation:shine 6s linear infinite; 
   }
   .animate-accordion-down { animation:accordion-down 0.2s ease-out; }
   .animate-accordion-up { animation:accordion-up 0.2s ease-out; }

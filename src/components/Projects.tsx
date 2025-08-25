@@ -6,13 +6,16 @@ import { IoIosArrowForward } from "react-icons/io";
 
 import { projects } from "@/data";
 import { PinContainer } from "./ui/Pin";
+import { AnimatedDiv } from "./ui/3DanimateDiv";
 
 const Projects = () => {
   return (
     <div className="flex relative justify-center items-center flex-col z-20 p-5 pb-15">
-      <h1 className="text-6xl font-semibold">
-        My <span className="text-purple animate-shine">Projects</span>
-      </h1>
+      <AnimatedDiv rotateDepth={10} translateDepth={10}>
+        <h1 className="text-6xl font-semibold">
+          My <span className="text-purple animate-shine">Projects</span>
+        </h1>
+      </AnimatedDiv>
       <div className="grid grid-cols-3 items-center justify-center">
         {projects.map((item) => (
           <div

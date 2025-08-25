@@ -4,14 +4,16 @@ import { workExperience } from "@/data";
 import { Button } from "./ui/MovingBorders";
 
 import DimondAnimation from "@/components/DimondLottie";
+import { AnimatedDiv } from "./ui/3DanimateDiv";
 
 const Experience = () => {
   return (
     <div className="py-5 w-full px-10 z-10 flex flex-col justify-center items-center">
-      <h1 className="text-6xl font-semibold">
-        My <span className="text-purple animate-shine">Experience</span>
-      </h1>
-
+      <AnimatedDiv rotateDepth={10} translateDepth={10}>
+        <h1 className="text-6xl font-semibold">
+          My <span className="text-purple animate-shine">Experience</span>
+        </h1>
+      </AnimatedDiv>
       <div className="w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">
         {workExperience.map((card) => (
           <Button
