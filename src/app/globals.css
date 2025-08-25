@@ -88,12 +88,12 @@
 
   .animate-flip-wave { display:inline-block; animation:flipWave 8s ease-in-out infinite; transform-origin:center; }
   .animate-shine { 
-    background:linear-gradient(60deg,#ffffff,#234fff,#ffffff); 
+    background:linear-gradient(60deg,#6fa1f8,#105cff,#6fa1f8); 
     background-size:200% auto;
     color:transparent; 
     -webkit-background-clip:text; 
     background-clip:text; 
-    animation:shine 30s linear infinite; 
+    animation:shine 10s linear infinite; 
   }
   .animate-accordion-down { animation:accordion-down 0.2s ease-out; }
   .animate-accordion-up { animation:accordion-up 0.2s ease-out; }
