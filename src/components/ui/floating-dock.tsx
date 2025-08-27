@@ -103,7 +103,7 @@ const FloatingDockDesktop = ({
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
         "mx-auto hidden h-16 items-end gap-4 rounded-2xl px-4 pb-3 md:flex",
-        className,
+        className
       )}
     >
       {items.map((item) => (
@@ -132,14 +132,14 @@ function IconContainer({
     return val - bounds.x - bounds.width / 2;
   });
 
-  let widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
-  let heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  let widthTransform = useTransform(distance, [-150, 0, 150], [35, 70, 35]);
+  let heightTransform = useTransform(distance, [-150, 0, 150], [35, 70, 35]);
 
-  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
+  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [15, 30, 15]);
   let heightTransformIcon = useTransform(
     distance,
     [-150, 0, 150],
-    [20, 40, 20],
+    [15, 30, 15]
   );
 
   let width = useSpring(widthTransform, {
@@ -168,32 +168,42 @@ function IconContainer({
 
   return (
     <a href={href}>
-      <motion.div
-        ref={ref}
-        style={{ width, height }}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        className="relative flex aspect-square items-center justify-center rounded-full bg-blue-900/20"
-      >
+      <div className="relative flex items-center justify-center">
+        {/* Polygon div */}
+        <motion.div
+          ref={ref}
+          style={{
+            width,
+            height,
+            clipPath:
+              "polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)",
+          }}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          className="relative flex items-center justify-center rounded-full bg-blue-900/30"
+        >
+          <motion.div
+            style={{ width: widthIcon, height: heightIcon }}
+            className="flex items-center justify-center"
+          >
+            {icon}
+          </motion.div>
+        </motion.div>
+
+        {/* Tooltip */}
         <AnimatePresence>
           {hovered && (
             <motion.div
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="absolute -top-8 left-1/2 w-fit rounded-md border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs whitespace-pre text-neutral-700 dark:border-neutral-900 dark:bg-neutral-800 dark:text-white"
+              className="absolute -top-8 left-1/2 w-fit rounded-full border px-2 py-0.5 text-xs whitespace-pre bg-black text-blue-500 shadow-xl shadow-blue-600"
             >
               {title}
             </motion.div>
           )}
         </AnimatePresence>
-        <motion.div
-          style={{ width: widthIcon, height: heightIcon }}
-          className="flex items-center justify-center"
-        >
-          {icon}
-        </motion.div>
-      </motion.div>
+      </div>
     </a>
   );
 }
