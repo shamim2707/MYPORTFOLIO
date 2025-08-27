@@ -5,6 +5,8 @@ import Projects from "@/components/Projects"
 import CustomCursor from "@/components/CustomCursor";
 import Testimonials from "@/components/Testimonials";
 import Experience from "@/components/Experience";
+import Approach from "@/components/Approach";
+
 
 export default function Home() {
   return (
@@ -17,11 +19,11 @@ export default function Home() {
         [background-image:radial-gradient(#2d2d2d_1px,transparent_1px)]
         dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]"
       />
-
       <Hero2 />
       <Grid />
       <Projects />
       <Testimonials/>
+      <Approach />
       <Experience/>
     </main>
   );
