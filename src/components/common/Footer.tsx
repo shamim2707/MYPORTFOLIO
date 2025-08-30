@@ -95,7 +95,7 @@ export default function Footer() {
 
         <AnimatedDiv rotateDepth={2} translateDepth={2}>
           <h1 className="text-[15vw] font-extrabold bg-gradient-to-b from-black via-blue-700 to-blue-500 bg-clip-text text-transparent animate-gradient-x">
-            Ajmal Faris
+            Shamim Akhtar
           </h1>
         </AnimatedDiv>
 
@@ -104,7 +104,7 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <div className="w-full text-center text-xs text-blue-200/50">
-          © {new Date().getFullYear()} Ajmal Faris. All rights reserved.
+          © {new Date().getFullYear()} Shamim Akhtar. All rights reserved.
         </div>
       </div>
     </footer>

@@ -14,7 +14,7 @@ import { SiLeetcode } from "react-icons/si";
 import { TfiDownload } from "react-icons/tfi";
 import { MdFileDownloadDone } from "react-icons/md";
 
-const myCv = "/myFakeCV.pdf";
+const myCv = "/myCV.pdf";
 
 const titles = [
   {
@@ -130,7 +130,7 @@ export default function Hero() {
         <div className="text-center md:text-left flex-2">
           <p className="text-xl">Hello, It&apos;s Me</p>
           <AnimatedText
-            text="Ajmal Faris"
+            text="Shamim Akhtar"
             className="text-[16vw] sm:text-[8vw] font-bold text-nowrap animate-shine"
             rotateDepth={10}
             translateDepth={10}

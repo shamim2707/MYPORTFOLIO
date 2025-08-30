@@ -24,9 +24,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ajmal Faris | Full Stack Engineer",
+  title: "Shamim Akhtar | Full Stack Engineer",
   description:
-    "Personal portfolio of Ajmal Faris – showcasing projects, skills, and experience in fullstack development.",
+    "Personal portfolio of Shamim Akhtar  showcasing projects, skills, and experience in fullstack development.",
   icons: {
     icon: "/favicon.ico",
   },
